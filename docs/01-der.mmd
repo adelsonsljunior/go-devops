@@ -1,0 +1,28 @@
+---
+config:
+  theme: redux-color
+---
+
+erDiagram
+    USER ||--o{ TODO : "creates"
+
+    USER {
+        uuid id PK
+        string name
+        string email UK
+        string password_hash
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    TODO {
+        uuid id PK
+        uuid user_id FK
+        string title
+        string description
+        enum status "to-do | doing | done"
+        enum priority "low | medium | high"
+        timestamp due_date
+        timestamp created_at
+        timestamp updated_at
+    }
